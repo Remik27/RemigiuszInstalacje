@@ -42,7 +42,7 @@ class BuildServiceTest {
     void addTestShouldThrowWhenAddressAlreadyExist() {
         //given
         Build build = DomainFixtures.someBuild();
-        String message = "Build with this [%s] address already exist".formatted(build.address().fullAddress());
+        String message = "Build with this address [%s] already exist".formatted(build.address().fullAddress());
 
         //when
         Mockito.when(addressService.checkExistence(build.address())).thenReturn(true);
