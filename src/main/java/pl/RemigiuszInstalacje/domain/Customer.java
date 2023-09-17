@@ -1,6 +1,12 @@
 package pl.RemigiuszInstalacje.domain;
 
-public class Customer {
+public record Customer (
 
-    //todo complete domain class
+    Integer id,
+    String name,
+    String surname,
+    String email,
+    String phoneNumber
+){
+
 }
