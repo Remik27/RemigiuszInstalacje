@@ -10,7 +10,6 @@ import java.time.OffsetDateTime;
 @With
 public record Build (
     Address address,
-    String postalCode,
     Stage stage,
     BigDecimal materialCosts,
     BigDecimal workCosts,
