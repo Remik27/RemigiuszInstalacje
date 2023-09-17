@@ -11,6 +11,7 @@ import java.time.ZoneOffset;
 public class DomainFixtures {
     public static Build someBuild() {
     return Build.builder()
+            .id(1)
             .address(someAddress())
             .stage(Stage.IN_PROGRESS)
             .materialCosts(BigDecimal.valueOf(10000))

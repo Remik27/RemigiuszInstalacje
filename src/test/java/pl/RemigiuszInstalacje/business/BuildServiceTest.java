@@ -10,6 +10,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import pl.RemigiuszInstalacje.business.dao.BuildDao;
 import pl.RemigiuszInstalacje.domain.Build;
 import pl.RemigiuszInstalacje.domain.exception.ResourceAlreadyExistException;
+import pl.RemigiuszInstalacje.domain.exception.ResourceNotExistException;
 import pl.RemigiuszInstalacje.util.DomainFixtures;
 
 @ExtendWith(MockitoExtension.class)
@@ -51,7 +52,34 @@ class BuildServiceTest {
         //then
         Assertions.assertEquals(message, exception.getMessage());
 
+    }
+    @Test
+    void findBuildByIdShouldReturnBuildCorrectly(){
+        //given
+        Build build = DomainFixtures.someBuild();
+        Integer id = build.id();
 
+        //when
+        Mockito.when(buildDao.findBuildById(id)).thenReturn(build);
+        Build buildById = buildService.findBuildById(id);
+
+        //then
+        Assertions.assertEquals(build, buildById);
+
+    }
+    @Test
+    void findBuildByIdShouldThrowWhenBuildNotExist(){
+        //given
+        Integer id = 1;
+        String message = "Resource with id [%d] not exist".formatted(id);
+
+        //when
+        Mockito.when(buildDao.findBuildById(id)).thenThrow(new ResourceNotExistException(message));
+        ResourceNotExistException exception =
+                Assertions.assertThrows(ResourceNotExistException.class, () -> buildService.findBuildById(id));
+
+        //then
+        Assertions.assertEquals(message, exception.getMessage());
     }
 
 }

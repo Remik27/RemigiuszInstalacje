@@ -8,12 +8,13 @@ import java.time.OffsetDateTime;
 
 @Builder
 @With
-public record Build (
-    Address address,
-    Stage stage,
-    BigDecimal materialCosts,
-    BigDecimal workCosts,
-    OffsetDateTime startDate,
-    OffsetDateTime deadline
-){
+public record Build(
+        Integer id,
+        Address address,
+        Stage stage,
+        BigDecimal materialCosts,
+        BigDecimal workCosts,
+        OffsetDateTime startDate,
+        OffsetDateTime deadline
+) {
 }
