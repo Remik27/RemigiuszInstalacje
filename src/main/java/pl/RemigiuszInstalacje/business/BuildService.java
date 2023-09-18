@@ -20,7 +20,7 @@ public class BuildService {
     }
 
     public Build findBuildById(Integer buildId) {
-        return null;
+        return buildDao.findBuildById(buildId);
     }
 
     public Build updateBuild(Integer buildId, Build build) {
