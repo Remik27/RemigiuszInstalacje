@@ -82,4 +82,33 @@ class BuildServiceTest {
         Assertions.assertEquals(message, exception.getMessage());
     }
 
+    @Test
+    void updateBuildShouldUpdateCorrectly(){
+        //given
+        Build build = DomainFixtures.someBuild();
+
+        //when
+        Mockito.when(buildDao.saveBuild(build)).thenReturn(build);
+        Mockito.when(buildDao.checkExistance(build.id())).thenReturn(true);
+        Build buildUpdated = buildService.updateBuild(build);
+
+        //then
+        Assertions.assertEquals(build, buildUpdated);
+    }
+
+    @Test
+    void updateBuildShouldThrowWhenBuildNotExist(){
+        //given
+        Build build = DomainFixtures.someBuild();
+        String message = "Resource with id [%d] not exist".formatted(build.id());
+
+        //when
+        Mockito.when(buildDao.checkExistance(build.id())).thenReturn(false);
+        ResourceNotExistException exception =
+                Assertions.assertThrows(ResourceNotExistException.class, () -> buildService.updateBuild(build));
+
+        //then
+        Assertions.assertEquals(message, exception.getMessage());
+    }
+
 }

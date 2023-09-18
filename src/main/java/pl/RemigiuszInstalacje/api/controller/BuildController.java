@@ -4,11 +4,9 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.RemigiuszInstalacje.api.dto.BuildDto;
-import pl.RemigiuszInstalacje.api.dto.CustomerDto;
 import pl.RemigiuszInstalacje.api.dto.mapper.BuildMapper;
 import pl.RemigiuszInstalacje.business.BuildService;
 import pl.RemigiuszInstalacje.domain.Build;
-import pl.RemigiuszInstalacje.domain.Customer;
 
 @RestController
 @RequestMapping(BuildController.BUILD_API)
@@ -44,11 +42,10 @@ public class BuildController {
 
     @PatchMapping(UPDATE_BUILD)
     public ResponseEntity<BuildDto> updateBuild(
-            @PathVariable Integer buildId,
             @RequestBody BuildDto buildDto){
         Build build = buildMapper.mapFromDto(buildDto);
 
-        Build buildUpdated = buildService.updateBuild(buildId, build);
+        Build buildUpdated = buildService.updateBuild(build);
         BuildDto buildDtoUpdated = buildMapper.mapToDto(buildUpdated);
         return ResponseEntity.ok(buildDtoUpdated);
     }

@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import pl.RemigiuszInstalacje.business.dao.BuildDao;
 import pl.RemigiuszInstalacje.domain.Build;
 import pl.RemigiuszInstalacje.domain.exception.ResourceAlreadyExistException;
+import pl.RemigiuszInstalacje.domain.exception.ResourceNotExistException;
 
 @AllArgsConstructor
 public class BuildService {
@@ -23,7 +24,16 @@ public class BuildService {
         return buildDao.findBuildById(buildId);
     }
 
-    public Build updateBuild(Integer buildId, Build build) {
-        return null;
+    public Build updateBuild(Build build) {
+        if (checkIdExistance(build.id())) {
+            return buildDao.saveBuild(build);
+        }
+        throw new ResourceNotExistException("Resource with id [%d] not exist".formatted(build.id()));
+    }
+
+    private boolean checkIdExistance(Integer id) {
+        if (id == null) {
+            return false;
+        } else return buildDao.checkExistance(id);
     }
 }
