@@ -28,7 +28,7 @@ public class BuildService {
         if (checkIdExistance(build.id())) {
             return buildDao.saveBuild(build);
         }
-        throw new ResourceNotExistException("Resource with id [%d] not exist".formatted(build.id()));
+        throw new ResourceNotExistException("Build with id [%d] not exist".formatted(build.id()));
     }
 
     private boolean checkIdExistance(Integer id) {

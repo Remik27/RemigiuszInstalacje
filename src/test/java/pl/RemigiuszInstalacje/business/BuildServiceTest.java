@@ -71,7 +71,7 @@ class BuildServiceTest {
     void findBuildByIdShouldThrowWhenBuildNotExist(){
         //given
         Integer id = 1;
-        String message = "Resource with id [%d] not exist".formatted(id);
+        String message = "Build with id [%d] not exist".formatted(id);
 
         //when
         Mockito.when(buildDao.findBuildById(id)).thenThrow(new ResourceNotExistException(message));
