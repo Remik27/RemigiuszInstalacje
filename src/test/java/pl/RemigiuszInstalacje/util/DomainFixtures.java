@@ -24,8 +24,9 @@ public class DomainFixtures {
 
     }
 
-    private static Address someAddress() {
+    public static Address someAddress() {
         return Address.builder()
+                .id(1)
                 .city("City")
                 .street("street 53")
                 .postalCode("44-444")

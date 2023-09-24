@@ -5,6 +5,6 @@ import lombok.With;
 
 @With
 @Builder
-public record Address(String city, String street, String postalCode, String fullAddress) {
+public record Address(Integer id, String city, String street, String postalCode, String fullAddress) {
 
 }
