@@ -2,6 +2,7 @@ package pl.RemigiuszInstalacje.util;
 
 import pl.RemigiuszInstalacje.domain.Address;
 import pl.RemigiuszInstalacje.domain.Build;
+import pl.RemigiuszInstalacje.domain.Customer;
 import pl.RemigiuszInstalacje.domain.Stage;
 
 import java.math.BigDecimal;
@@ -31,6 +32,16 @@ public class DomainFixtures {
                 .street("street 53")
                 .postalCode("44-444")
                 .fullAddress("street 53, City 44-444")
+                .build();
+    }
+
+    public static Customer someCustomer() {
+        return Customer.builder()
+                .id(1)
+                .email("email@email.pl")
+                .name("name")
+                .surname("surname")
+                .phoneNumber("111222333")
                 .build();
     }
 }

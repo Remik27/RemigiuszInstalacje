@@ -1,5 +1,8 @@
 package pl.RemigiuszInstalacje.domain;
 
+import lombok.Builder;
+
+@Builder
 public record Customer (
 
     Integer id,

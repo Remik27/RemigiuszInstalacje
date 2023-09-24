@@ -15,10 +15,10 @@ import pl.RemigiuszInstalacje.util.DomainFixtures;
 class AddressServiceTest {
 
     @Mock
-    AddressDao addressDao;
+    private AddressDao addressDao;
 
     @InjectMocks
-    AddressService addressService;
+    private AddressService addressService;
 
     @Test
     void checkExistanceShouldReturnTrueWhenAddressIsFound() {
