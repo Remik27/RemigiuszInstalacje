@@ -1,5 +1,6 @@
 package pl.RemigiuszInstalacje.business;
 
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import pl.RemigiuszInstalacje.business.dao.CustomerDao;
 import pl.RemigiuszInstalacje.domain.Customer;
@@ -19,8 +20,8 @@ public class CustomerService {
 
     }
 
+    @Transactional
     public Customer updateCustomer(Integer customerId, Customer customer) {
-
-        return null;
+        return customerDao.updateCustomer(customer);
     }
 }

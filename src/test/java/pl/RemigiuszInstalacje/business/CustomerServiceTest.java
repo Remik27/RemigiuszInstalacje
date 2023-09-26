@@ -50,4 +50,21 @@ class CustomerServiceTest {
         Assertions.assertEquals(message, exception.getMessage());
     }
 
+    @Test
+    void updateCustomerShouldUpdateWhenCustomerExist(){
+        //given
+        Customer customer = DomainFixtures.someCustomer();
+        String newName = "newName";
+        Customer expectCustomer = customer.withName(newName);
+
+        //when
+        Mockito.when(customerDao.updateCustomer(expectCustomer)).thenReturn(expectCustomer);
+
+        Customer result = customerService.updateCustomer(customer.id(), expectCustomer);
+
+        //then
+        Assertions.assertEquals(expectCustomer, result);
+        Assertions.assertEquals(newName, result.name());
+    }
+
 }

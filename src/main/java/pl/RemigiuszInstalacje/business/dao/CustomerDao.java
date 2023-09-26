@@ -4,4 +4,6 @@ import pl.RemigiuszInstalacje.domain.Customer;
 
 public interface CustomerDao {
     Customer findCustomerById(Integer id);
+
+    Customer updateCustomer(Customer customer);
 }
