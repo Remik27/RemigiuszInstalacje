@@ -2,11 +2,12 @@ package pl.RemigiuszInstalacje.business;
 
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 import pl.RemigiuszInstalacje.business.dao.BuildDao;
 import pl.RemigiuszInstalacje.domain.Build;
 import pl.RemigiuszInstalacje.domain.exception.ResourceAlreadyExistException;
 import pl.RemigiuszInstalacje.domain.exception.ResourceNotExistException;
-
+@Service
 @AllArgsConstructor
 public class BuildService {
 

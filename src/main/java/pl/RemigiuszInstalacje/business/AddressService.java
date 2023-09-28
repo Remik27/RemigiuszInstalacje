@@ -1,9 +1,11 @@
 package pl.RemigiuszInstalacje.business;
 
 import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 import pl.RemigiuszInstalacje.business.dao.AddressDao;
 import pl.RemigiuszInstalacje.domain.Address;
 
+@Service
 @AllArgsConstructor
 public class AddressService {
 
