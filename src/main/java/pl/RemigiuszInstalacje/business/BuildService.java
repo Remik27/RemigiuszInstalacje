@@ -1,5 +1,6 @@
 package pl.RemigiuszInstalacje.business;
 
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import pl.RemigiuszInstalacje.business.dao.BuildDao;
 import pl.RemigiuszInstalacje.domain.Build;
@@ -12,6 +13,7 @@ public class BuildService {
     private final BuildDao buildDao;
     private final AddressService addressService;
 
+    @Transactional
     public Build addBuild(Build build) {
         if (addressService.checkExistence(build.address())) {
             throw new ResourceAlreadyExistException(
@@ -24,6 +26,7 @@ public class BuildService {
         return buildDao.findBuildById(buildId);
     }
 
+    @Transactional
     public Build updateBuild(Build build) {
         if (checkIdExistance(build.id())) {
             return buildDao.saveBuild(build);
