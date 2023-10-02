@@ -2,7 +2,6 @@ package pl.RemigiuszInstalacje.infrastructure.db.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import pl.RemigiuszInstalacje.domain.Build;
 
 @Entity
 @Data
@@ -27,5 +26,5 @@ public class AddressEntity {
     private String fullAddress;
 
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "address")
-    private Build build;
+    private BuildEntity build;
 }

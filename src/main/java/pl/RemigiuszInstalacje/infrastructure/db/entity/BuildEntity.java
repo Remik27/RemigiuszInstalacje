@@ -2,8 +2,6 @@ package pl.RemigiuszInstalacje.infrastructure.db.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import pl.RemigiuszInstalacje.domain.Address;
-import pl.RemigiuszInstalacje.domain.Customer;
 import pl.RemigiuszInstalacje.domain.Stage;
 
 import java.math.BigDecimal;
@@ -37,9 +35,9 @@ public class BuildEntity {
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "address_id")
-    private Address address;
+    private AddressEntity address;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "customer_id")
-    private Customer customer;
+    private CustomerEntity customer;
 }

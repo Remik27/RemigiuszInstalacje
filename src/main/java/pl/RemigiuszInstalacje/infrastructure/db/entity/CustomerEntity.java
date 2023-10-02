@@ -2,7 +2,6 @@ package pl.RemigiuszInstalacje.infrastructure.db.entity;
 
 
 import jakarta.persistence.*;
-import pl.RemigiuszInstalacje.domain.Build;
 
 import java.util.Set;
 
@@ -28,5 +27,5 @@ public class CustomerEntity {
     private String phoneNumber;
 
     @OneToMany(mappedBy = "customer")
-    private Set<Build> builds;
+    private Set<BuildEntity> builds;
 }
