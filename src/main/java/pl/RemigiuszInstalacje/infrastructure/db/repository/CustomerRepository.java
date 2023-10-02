@@ -1,6 +1,7 @@
 package pl.RemigiuszInstalacje.infrastructure.db.repository;
 
 import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Repository;
 import pl.RemigiuszInstalacje.business.dao.CustomerDao;
 import pl.RemigiuszInstalacje.domain.Customer;
 import pl.RemigiuszInstalacje.domain.exception.ResourceNotExistException;
@@ -9,6 +10,7 @@ import pl.RemigiuszInstalacje.infrastructure.db.repository.jpa.CustomerJpaReposi
 import pl.RemigiuszInstalacje.infrastructure.db.repository.mapper.CustomerEntityMapper;
 
 @AllArgsConstructor
+@Repository
 public class CustomerRepository implements CustomerDao {
 
     private final CustomerEntityMapper customerEntityMapper;
