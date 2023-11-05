@@ -1,4 +1,4 @@
-package pl.RemigiuszInstalacje.infrastructure.security.entity;
+package pl.RemigiuszInstalacje.infrastructure.security.db.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -24,7 +24,7 @@ public class UserEntity implements UserDetails {
     private Integer id;
 
     @Column(name = "username")
-    private String userName;
+    private String username;
 
     @Column(name = "email")
     private String email;
@@ -49,27 +49,27 @@ public class UserEntity implements UserDetails {
 
     @Override
     public String getUsername() {
-        return null;
+        return username;
     }
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return true;
     }
 }
 

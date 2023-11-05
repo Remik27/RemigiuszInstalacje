@@ -1,4 +1,4 @@
-package pl.RemigiuszInstalacje.infrastructure.security.entity;
+package pl.RemigiuszInstalacje.infrastructure.security.db.entity;
 
 import jakarta.persistence.*;
 import lombok.*;

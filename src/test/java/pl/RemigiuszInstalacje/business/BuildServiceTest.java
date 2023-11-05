@@ -100,7 +100,7 @@ class BuildServiceTest {
     void updateBuildShouldThrowWhenBuildNotExist(){
         //given
         Build build = DomainFixtures.someBuild();
-        String message = "Resource with id [%d] not exist".formatted(build.id());
+        String message = "Build with id [%d] not exist".formatted(build.id());
 
         //when
         Mockito.when(buildDao.checkExistance(build.id())).thenReturn(false);
