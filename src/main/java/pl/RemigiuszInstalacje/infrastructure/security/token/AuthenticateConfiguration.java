@@ -27,7 +27,8 @@ public class AuthenticateConfiguration {
     SecurityFilterChain securityEnabled(HttpSecurity http) throws Exception {
         return http
                 .csrf(AbstractHttpConfigurer::disable)
-                .authorizeHttpRequests(req -> req.requestMatchers("/swagger-ui/index.html").permitAll()
+                .authorizeHttpRequests(req -> req.requestMatchers("/swagger-ui/**"
+                        ,"/**").permitAll()
                         .anyRequest().authenticated())
                 .sessionManagement(sessionManagement -> sessionManagement
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS))

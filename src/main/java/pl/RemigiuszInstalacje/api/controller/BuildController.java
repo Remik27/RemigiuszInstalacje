@@ -16,7 +16,7 @@ public class BuildController {
     public static final String BUILD_API = "/build";
 
     public static final String ADD_NEW_BUILD = "/add-new-build";
-    public static final String GET_BUILD = "/get-build";
+    public static final String GET_BUILD = "/get-build{buildId}";
     public static final String UPDATE_BUILD = "/update-build";
     private final BuildMapper buildMapper;
     private final BuildService buildService;
