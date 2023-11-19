@@ -10,7 +10,7 @@ import pl.RemigiuszInstalacje.infrastructure.security.domain.Roles;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "role")
+@Table(name = "roles")
 public class RoleEntity {
 
     @Id

@@ -42,7 +42,7 @@ public class AuthenticationService {
     public AuthenticationResponse register(RegisterRequest registerRequest) {
         registerRequest.setPassword(passwordEncoder.encode(registerRequest.getPassword()));
         UserEntity user = mapper.mapFromRegister(registerRequest);
-        repository.save(user);
+        repository.saveAndFlush(user.withActive(true));
         String jwtToken = jwtService.generateToken(user);
         return AuthenticationResponse.builder()
                 .token(jwtToken)
