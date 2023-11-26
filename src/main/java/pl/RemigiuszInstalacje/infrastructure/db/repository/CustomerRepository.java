@@ -31,4 +31,11 @@ public class CustomerRepository implements CustomerDao {
 
         return customerEntityMapper.mapFromEntity(customerJpaRepository.saveAndFlush(buildEntity));
     }
+
+    @Override
+    public Customer saveCustomer(Customer customer) {
+        CustomerEntity customerEntity = customerEntityMapper.mapToEntity(customer);
+
+        return customerEntityMapper.mapFromEntity(customerJpaRepository.saveAndFlush(customerEntity));
+    }
 }

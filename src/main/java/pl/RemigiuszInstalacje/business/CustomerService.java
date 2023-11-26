@@ -26,4 +26,9 @@ public class CustomerService {
     public Customer updateCustomer(Integer customerId, Customer customer) {
         return customerDao.updateCustomer(customer);
     }
+
+    @Transactional
+    public Customer saveCustomer(Customer customer){
+        return customerDao.saveCustomer(customer);
+    }
 }
