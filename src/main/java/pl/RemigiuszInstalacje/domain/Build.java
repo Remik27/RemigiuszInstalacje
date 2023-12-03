@@ -10,6 +10,8 @@ import java.time.OffsetDateTime;
 @With
 public record Build(
         Integer id,
+
+        Customer investor,
         Address address,
         Stage stage,
         BigDecimal materialCosts,

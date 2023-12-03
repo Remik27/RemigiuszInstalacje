@@ -1,0 +1,1 @@
+INSERT INTO roles (id, role) values (1, 'ADMIN'), (2, 'EMLOYEE'), (3, 'CUSTOMER');

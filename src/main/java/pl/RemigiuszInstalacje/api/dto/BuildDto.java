@@ -11,6 +11,7 @@ import java.time.OffsetDateTime;
 @Builder
 public record BuildDto(
         Integer id,
+        String customerEmail,
         String city,
         String street,
         @Pattern(regexp = "\\d\\d-\\d\\d\\d")

@@ -1,6 +1,7 @@
 package pl.RemigiuszInstalacje.api.dto.mapper;
 
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import pl.RemigiuszInstalacje.api.dto.CustomerDto;
 import pl.RemigiuszInstalacje.domain.Customer;
 import pl.RemigiuszInstalacje.infrastructure.security.api.dto.RegisterRequest;
@@ -11,5 +12,6 @@ public interface CustomerMapper {
 
     Customer mapFromDto(CustomerDto customerDto);
 
+    @Mapping(target = "id", ignore = true)
     Customer mapFromRegister(RegisterRequest registerRequest);
 }
