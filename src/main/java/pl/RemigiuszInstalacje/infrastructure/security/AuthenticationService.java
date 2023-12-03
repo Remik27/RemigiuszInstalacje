@@ -56,7 +56,8 @@ public class AuthenticationService {
         userRepository.saveAndFlush(
                 user
                         .withActive(true)
-                        .withRoles(Set.of(roleRepository.findByRole(Roles.CUSTOMER.name()).get())));
+                        .withRoles(Set.of(roleRepository.findByRole(Roles.CUSTOMER)
+                                .orElseThrow(() -> new ResourceNotExistException("Role [%s] not exist.")))));
         Customer customer = customerMapper.mapFromRegister(registerRequest);
         customerService.saveCustomer(customer);
         String jwtToken = jwtService.generateToken(user);

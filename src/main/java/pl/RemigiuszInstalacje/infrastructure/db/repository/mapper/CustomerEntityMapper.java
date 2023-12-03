@@ -7,7 +7,7 @@ import pl.RemigiuszInstalacje.infrastructure.db.entity.CustomerEntity;
 
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface CustomerEntityMapper {
-    Customer mapFromEntity(CustomerEntity orElseThrow);
+    Customer mapFromEntity(CustomerEntity customerEntity);
 
     CustomerEntity mapToEntity(Customer customer);
 }

@@ -14,6 +14,7 @@ public class DomainFixtures {
     return Build.builder()
             .id(1)
             .address(someAddress())
+            .investor(someCustomer())
             .stage(Stage.IN_PROGRESS)
             .materialCosts(BigDecimal.valueOf(10000))
             .workCosts(BigDecimal.valueOf(10000))

@@ -13,6 +13,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import pl.RemigiuszInstalacje.infrastructure.security.domain.Roles;
 
 @Configuration
 @RequiredArgsConstructor
@@ -27,8 +28,9 @@ public class AuthenticateConfiguration {
     SecurityFilterChain securityEnabled(HttpSecurity http) throws Exception {
         return http
                 .csrf(AbstractHttpConfigurer::disable)
-                .authorizeHttpRequests(req -> req.requestMatchers("/swagger-ui/**"
-                        ,"/**").permitAll()
+                .authorizeHttpRequests(req -> req.requestMatchers("/**"
+                        ).permitAll()
+//                        .requestMatchers("/build/**").hasRole(Roles.EMPLOYEE.name())
                         .anyRequest().authenticated())
                 .sessionManagement(sessionManagement -> sessionManagement
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS))

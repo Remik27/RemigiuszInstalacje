@@ -8,4 +8,6 @@ public interface CustomerDao {
     Customer updateCustomer(Customer customer);
 
     Customer saveCustomer(Customer customer);
+
+    Customer findCustomerByEmail(String email);
 }

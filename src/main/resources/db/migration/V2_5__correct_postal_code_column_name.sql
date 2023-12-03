@@ -1,0 +1,1 @@
+ALTER TABLE address RENAME COLUMN posta_code TO postal_code

@@ -8,7 +8,9 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import pl.RemigiuszInstalacje.business.dao.BuildDao;
+import pl.RemigiuszInstalacje.domain.Address;
 import pl.RemigiuszInstalacje.domain.Build;
+import pl.RemigiuszInstalacje.domain.Customer;
 import pl.RemigiuszInstalacje.domain.exception.ResourceAlreadyExistException;
 import pl.RemigiuszInstalacje.domain.exception.ResourceNotExistException;
 import pl.RemigiuszInstalacje.util.DomainFixtures;
@@ -21,6 +23,9 @@ class BuildServiceTest {
     @Mock
     private AddressService addressService;
 
+    @Mock
+    private CustomerService customerService;
+
     @InjectMocks
     private BuildService buildService;
 
@@ -28,9 +33,13 @@ class BuildServiceTest {
     void addTestShouldAddNewBuildCorrectly() {
         //given
         Build build = DomainFixtures.someBuild();
+        Customer investor = DomainFixtures.someCustomer();
+        Address address = DomainFixtures.someAddress();
 
         //when
         Mockito.when(addressService.checkExistence(build.address())).thenReturn(false);
+        Mockito.when(addressService.saveAddress(build.address())).thenReturn(address);
+        Mockito.when(customerService.findCustomerByEmail(build.investor().email())).thenReturn(investor);
         Mockito.when(buildDao.saveBuild(build)).thenReturn(build);
         Build buildAdded = buildService.addBuild(build);
 

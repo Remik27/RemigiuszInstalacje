@@ -31,4 +31,8 @@ public class CustomerService {
     public Customer saveCustomer(Customer customer){
         return customerDao.saveCustomer(customer);
     }
+
+    public Customer findCustomerByEmail(String email) {
+        return customerDao.findCustomerByEmail(email);
+    }
 }

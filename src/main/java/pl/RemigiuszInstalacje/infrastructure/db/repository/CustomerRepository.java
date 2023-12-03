@@ -15,6 +15,7 @@ public class CustomerRepository implements CustomerDao {
 
     private final CustomerEntityMapper customerEntityMapper;
     private final CustomerJpaRepository customerJpaRepository;
+
     @Override
     public Customer findCustomerById(Integer id) {
         return customerEntityMapper
@@ -37,5 +38,15 @@ public class CustomerRepository implements CustomerDao {
         CustomerEntity customerEntity = customerEntityMapper.mapToEntity(customer);
 
         return customerEntityMapper.mapFromEntity(customerJpaRepository.saveAndFlush(customerEntity));
+    }
+
+    @Override
+    public Customer findCustomerByEmail(String email) {
+
+        return customerEntityMapper
+                .mapFromEntity(
+                        customerJpaRepository.findByEmail(email)
+                                .orElseThrow(() -> new ResourceNotExistException("Customer with email [%s] not found"
+                                        .formatted(email))));
     }
 }

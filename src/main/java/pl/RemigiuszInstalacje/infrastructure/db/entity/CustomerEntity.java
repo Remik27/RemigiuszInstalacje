@@ -2,10 +2,12 @@ package pl.RemigiuszInstalacje.infrastructure.db.entity;
 
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.util.Set;
 
 @Entity
+@Data
 @Table(name = "customer")
 public class CustomerEntity {
 

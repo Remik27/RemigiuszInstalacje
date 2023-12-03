@@ -13,4 +13,8 @@ public class AddressService {
     public boolean checkExistence(Address address) {
         return addressDao.checkExistance(address);
     }
+
+    public Address saveAddress(Address address) {
+        return addressDao.saveAddress(address);
+    }
 }
